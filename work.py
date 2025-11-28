@@ -32,7 +32,8 @@ def expand_bbox(bbox: Tuple[int,int,int,int], img_w: int, img_h: int, pad_factor
     ny2 = min(int(img_h), int(y2 + pad_y))
     return (nx1, ny1, nx2, ny2)
 
-from anonymize_face import anonymize_face
+from anonymize_face import anonymize_face 
+# from https://github.com/hanweikung/nullface
 
 def deidentify(face_img: Image.Image) -> Image.Image:
     """
@@ -46,7 +47,6 @@ def deidentify(face_img: Image.Image) -> Image.Image:
     face_img.save(full_path)
     
     # model from nullface
-    
     output_img = anonymize_face(
         image_path=full_path,
         mask_image_path="",
